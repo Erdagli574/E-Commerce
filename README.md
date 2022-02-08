@@ -5,7 +5,7 @@ Hi! This project implements an E-Commerce shopping system where people can view 
 - **_Admin_** who will be in charge of all processes and website activities.
 
 ## Outline
-1. Laravel Project Setup on Ubuntu
+1. Laravel Project Setup on Linux
 2. Laravel Project Setup on Windows
 3. DB E-R Diagram
 
