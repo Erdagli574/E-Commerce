@@ -38,7 +38,11 @@ class HomeController extends Controller
         if(TReq::input('currency')){
             $cookie_curr = Currencies::where('id',TReq::input('currency'))->first();
         }else{
-            $cookie_curr = json_decode($_COOKIE['cookie_currency']);
+            if(isset($_COOKIE['cookie_currency'])) {
+                $cookie_curr = json_decode($_COOKIE['cookie_currency']);
+            } else {
+                $cookie_curr = json_decode(Currencies::first());
+            }
         }
 
         foreach ($products as $key => $product) {
