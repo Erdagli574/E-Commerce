@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index($name,$id){
+    public function index(Request $request, $name,$id){
 
         $def_logo = Config::where('key','default_product_logo')->first();
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
         $cat_discount   = CategoryDiscount::where('category_id',$product->category_id)->first();
 
         if(\Illuminate\Support\Facades\Request::input('currency')){
-            $cookie_curr = Currencies::where('id',Request::input('currency'))->first();
+            $cookie_curr = Currencies::where('id', $request->currency)->first();
         }else{
             $cookie_curr = json_decode($_COOKIE['cookie_currency']);
         }
